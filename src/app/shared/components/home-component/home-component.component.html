@@ -1,0 +1,53 @@
+
+<div class="hero common-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1> Lista de Generos</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="#">Inicio</a></li>
+						<li> <span class="ion-ios-arrow-right"></span> Selecciona el genero a elegir</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+
+<div class="page-single">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-sm-12 col-xs-12">
+                 <div class="top-search">
+                    <input type="text" placeholder="Buscar Pelicula" [(ngModel)]="search" (keyup)="serachMovie()">
+                </div>
+                <br>
+                <div class="flex-wrap-movielist mv-grid-fw" *ngIf="serachControl == 0">
+                    <div class="movie-item-style-2 movie-item-style-1"  *ngFor="let genres of (genres$ | async)?.genres; let i = index">
+                        <img src="../assets/images/uploads/mv1.jpg" alt="">
+                        <div class="hvr-inner">
+                            <a (click)="seeMovies(genres.id)">Ver peliculas<i class="ion-android-arrow-dropright"></i></a>
+                        </div>
+                        <div class="mv-item-infor">
+                            <h6><a >{{genres.name}} </a></h6>
+                        </div>
+                    </div>	
+                </div>
+                <div class="flex-wrap-movielist mv-grid-fw" *ngIf="serachControl == 1">
+                    <div class="movie-item-style-2 movie-item-style-1"  *ngFor="let movies of (movies$ | async)?.results; let i = index">
+                        <img src="http://image.tmdb.org/t/p/w185/{{movies.poster_path}}" alt="">
+                        <div class="hvr-inner">
+                          
+                            <a (click)="seeDetails(movies.id)">VER MAS<i class="ion-android-arrow-dropright"></i></a>
+                        </div>
+                        <div class="mv-item-infor">
+                            <h6><a >{{movies.title}} </a></h6>
+                        </div>
+                    </div>	
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+  

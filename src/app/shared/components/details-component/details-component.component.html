@@ -1,0 +1,127 @@
+<div class="hero mv-single-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				
+			</div>
+		</div>
+	</div>
+</div>
+<div class="page-single movie-single movie_single">
+	<div class="container">
+		<div class="row ipad-width2">
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="movie-img sticky-sb">
+					<img src="http://image.tmdb.org/t/p/w185{{(movies$ | async)?.poster_path}}" alt="">
+					<div class="movie-btn">	
+						<div class="btn-transform transform-vertical red">
+							<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Ver trailer</a></div>
+							<div><a href=" https://www.youtube.com/" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
+						</div>
+						
+					</div>
+				</div>
+            </div>
+            <!-- container movie -->
+            
+			<div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="tabs">
+                    <ul class="tab-links tabs-mv">
+                        <li class="active"><a (click)="home()">Inicio</a></li>                    
+                    </ul>
+                </div>
+                <!--single movie content-->
+				<div class="movie-single-ct main-content">
+                    <h1 class="bd-hd">{{(movies$ | async)?.title}} <span> <span>- </span>{{(movies$ | async)?.release_date | date:'y'}}</span></h1>
+                    
+					
+                    <!-- Rate movie-->
+					<div class="movie-rate">
+						<div class="rate">
+							<i class="ion-android-star"></i>
+							<p><span>{{(movies$ | async)?.vote_average}}</span> /10<br>
+								<span class="rv">{{(movies$ | async)?.vote_count}} votos</span>
+							</p>
+						</div>
+						
+						
+						<fieldset class="rating">
+							<input type="radio" [name]="inputName" value="10" [checked]="rating===10" />
+							<label title="Rocks!" (click)='onClick(10)'>10 stars</label>
+
+							<input type="radio" [name]="inputName" value="9" [checked]="rating===9" />
+							<label title="Rocks!" (click)='onClick(9)'>9 stars</label>
+
+							<input type="radio" [name]="inputName" value="8" [checked]="rating===8" />
+							<label title="Rocks!" (click)='onClick(8)'>8 stars</label>
+
+							<input type="radio" [name]="inputName" value="7" [checked]="rating===7" />
+							<label title="Rocks!" (click)='onClick(7)'>7 stars</label>
+
+							<input type="radio" [name]="inputName" value="6" [checked]="rating===6" />
+							<label title="Rocks!" (click)='onClick(6)'>6 stars</label>
+
+							<input type="radio" [name]="inputName" value="5" [checked]="rating===5" />
+							<label title="Rocks!" (click)='onClick(5)'>5 stars</label>
+						  
+							<input type="radio" [name]="inputName" value="4" [checked]="rating===4" />
+							<label title="Pretty good" (click)='onClick(4)'>4 stars</label>
+						  
+							<input type="radio" [name]="inputName" value="3" [checked]="rating===3" />
+							<label title="Meh" (click)='onClick(3)'>3 stars</label>
+						  
+							<input type="radio" [name]="inputName" value="2" [checked]="rating===2" />
+							<label title="Kinda bad" (click)='onClick(2)'>2 stars</label>
+						  
+							<input type="radio" [name]="inputName" value="1" [checked]="rating===1" />
+							<label title="Sucks big time" (click)='onClick(1)'>1 star</label>
+						  </fieldset>
+                    </div>
+                    <!-- end Rate movie-->
+					<div class="movie-tabs">
+                        <!-- tabs-->
+						<div class="tabs">
+							<ul class="tab-links tabs-mv">
+								<li class="active"><a >Detalles</a></li>
+							                      
+                            </ul>
+                            <!-- Tab description-->
+                            <div class="tab-content">
+						        <div id="overview" class="tab active">
+						            <div class="row">
+						            	<div class="col-md-8 col-sm-12 col-xs-12">
+						            		<p>{{(movies$ | async)?.overview}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- end Tab description-->
+                           
+                        <!--end tabs-->
+                    </div>
+                <!--end single movie content-->
+                </div>
+                <div class="movie-tabs">
+                    <div class="tabs">
+                        <ul class="tab-links tabs-mv">
+                            <li class="active"><a >Recomendacion</a></li>             
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                   
+                    <div class="movie-item-style-2">
+                        <img src="http://image.tmdb.org/t/p/w185{{(recomendated$ | async)?.results[0].poster_path}}" alt="" width="21%">
+                        <div class="mv-item-infor">
+                            <h6><a>{{(recomendated$ | async)?.results[0].title}} <span>{{(recomendated$ | async)?.results[0].release_date | date:'y'}}</span></a></h6>
+                            <p class="rate"><i class="ion-android-star"></i><span>{{(recomendated$ | async)?.results[0].vote_average}}</span> /10</p>
+                            <p class="describe">{{(recomendated$ | async)?.results[0].overview}}</p>
+                        </div>
+                    </div>
+                </div>
+			</div>
+            <!-- container movie -->
+        </div>
+    </div>
+</div>
+
